@@ -21,7 +21,7 @@ app.js
 
 ### Where is the logic implemented?
 **server.js**: all API calls (RandomUser, Country API, Exchange Rate, News API) work here.
-**public/app.js**: frontend logic for button click + rendering cards using data returned from backend routes.
+**public/core.js**: frontend logic for button click + rendering cards using data returned from backend routes.
 **views/index.html**: only HTML structure (no business logic).
 **public/styles.css**: styling.
 
