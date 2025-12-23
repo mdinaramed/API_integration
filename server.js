@@ -18,7 +18,7 @@ app.get("/api/random-user", async (req, res) => {
   try {
     const response = await axios.get("https://randomuser.me/api/", {
       params: { results: 1 },
-      timeout: 8000
+      timeout: 20000
     });
 
     const u = response.data.results[0];
@@ -36,8 +36,13 @@ app.get("/api/random-user", async (req, res) => {
 
     res.json(payload);
   } catch (err) {
-    res.status(500).json({ error: "Failed to fetch random user", details: err.message });
+  console.log("RandomUser ERROR:", err.message);
+  if (err.response) {
+    console.log("Status:", err.response.status);
+    console.log("Data:", err.response.data);
   }
+  res.status(500).json({ error: "Failed to fetch random user", details: err.message });
+}
 });
 
 // 2.Integrate Countrylayer API
